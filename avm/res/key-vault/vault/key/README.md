@@ -154,6 +154,18 @@ Array of role assignments to create.
 
 - Required: No
 - Type: array
+- Roles configurable by name:
+  - `'Contributor'`
+  - `'Key Vault Administrator'`
+  - `'Key Vault Contributor'`
+  - `'Key Vault Crypto Officer'`
+  - `'Key Vault Crypto Service Encryption User'`
+  - `'Key Vault Crypto User'`
+  - `'Key Vault Reader'`
+  - `'Owner'`
+  - `'Reader'`
+  - `'Role Based Access Control Administrator'`
+  - `'User Access Administrator'`
 
 **Required parameters**
 
@@ -263,6 +275,8 @@ Resource tags.
 
 | Output | Type | Description |
 | :-- | :-- | :-- |
+| `keyUriWithVersion` | string | The uri with version of the key. |
+| `keyUri` | string | The uri of the key. |
 | `name` | string | The name of the key. |
 | `resourceGroupName` | string | The name of the resource group the key was created in. |
 | `resourceId` | string | The resource ID of the key. |

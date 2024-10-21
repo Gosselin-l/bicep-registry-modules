@@ -129,8 +129,10 @@ resource key 'Microsoft.KeyVault/vaults/keys@2022-07-01' = {
     keyOps: keyOps
     keySize: keySize
     kty: kty
-    rotationPolicy: rotationPolicy ?? {}
     release_policy: releasePolicy ?? {}
+    ...(empty(rotationPolicy) ? {} : {
+      rotationPolicy: rotationPolicy
+    })
   }
 }
 
@@ -149,6 +151,12 @@ resource key_roleAssignments 'Microsoft.Authorization/roleAssignments@2022-04-01
     scope: key
   }
 ]
+
+@description('The uri of the key.')
+output keyUri string = key.properties.keyUri
+
+@description('The uri with version of the key.')
+output keyUriWithVersion string = key.properties.keyUriWithVersion
 
 @description('The name of the key.')
 output name string = key.name
